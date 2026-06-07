@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Automation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #F8FAFC;
+    }
+    .wrapper {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
+      position: relative;
+    }
+    .header {
+      padding: 30px 40px;
+      border-bottom: 1px solid #E2E8F0;
+    }
+    .content {
+      padding: 30px 40px;
+    }
+    .footer {
+      padding: 20px 40px;
+      border-top: 1px solid #E2E8F0;
+      font-size: 0.8em;
+      color: #94A3B8;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="header">
+      <h1 style="color: #1B2B4B; margin: 0 0 10px 0;">Automation</h1>
+      <div style="color: #64748B; font-size: 0.85em;">
+        <span>Category: CLM</span> &bull; <span>File: Automation.md</span>
+      </div>
+    </div>
+    <div class="content">
+      <div class="automation-doc-wrapper">
+  <!-- CSS Styling -->
+  <style>
+    :root {
+      --bg-main: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --text-main: #334155;
+      --text-muted: #64748B;
+      --navy-primary: #1B2B4B;
+      --blue-accent: #4A9FFF;
+      --blue-hover: #3580E0;
+      --blue-light: #EBF5FF;
+      --border-color: #E2E8F0;
+      --code-bg: #1E293B;
+      --code-text: #E2E8F0;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .automation-doc-wrapper {
+      font-family: var(--font-family);
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      border-radius: 12px;
+    }
+
+    /* Typography & Core Elements */
+    .automation-doc-wrapper h1, 
+    .automation-doc-wrapper h2, 
+    .automation-doc-wrapper h3, 
+    .automation-doc-wrapper h4 {
+      color: var(--navy-primary);
+      font-weight: 700;
+      margin-top: 0;
+    }
+
+    .automation-doc-wrapper h1 {
+      font-size: 2.25rem;
+      letter-spacing: -0.025em;
+      margin-bottom: 0.5rem;
+    }
+
+    .automation-doc-wrapper p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    /* Header & Hero Section */
+    .doc-header {
+      background: linear-gradient(135deg, var(--navy-primary) 0%, #2D4373 100%);
+      color: #FFFFFF;
+      padding: 3rem 2rem;
+      border-radius: 16px;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .doc-header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(74, 159, 255, 0.15) 0%, rgba(0,0,0,0) 70%);
+      border-radius: 50%;
+    }
+
+    .doc-header h1 {
+      color: #FFFFFF;
+      margin: 0;
+    }
+
+    .doc-header .subtitle {
+      color: #93C5FD;
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: rgba(255, 255, 255, 0.15);
+      color: #FFFFFF;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Video Walkthrough Callout */
+    .video-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: var(--blue-light);
+      border: 1px solid rgba(74, 159, 255, 0.3);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.5rem;
+      gap: 1rem;
+    }
+
+    .video-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .video-icon {
+      background-color: var(--blue-accent);
+      color: white;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(74, 159, 255, 0.3);
+    }
+
+    .video-text h4 {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--navy-primary);
+    }
+
+    .video-text p {
+      margin: 0;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .video-btn {
+      background-color: var(--navy-primary);
+      color: white;
+      padding: 0.6rem 1.25rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .video-btn:hover {
+      background-color: var(--blue-hover);
+      transform: translateY(-1px);
+    }
+
+    /* Tabbed Navigation */
+    .tabs-container {
+      margin-bottom: 2rem;
+    }
+
+    .tab-list {
+      display: flex;
+      gap: 0.5rem;
+      padding: 0.35rem;
+      background-color: #E2E8F0;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .tab-list::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tab-btn {
+      flex: 1;
+      text-align: center;
+      padding: 0.75rem 1rem;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .tab-btn:hover {
+      color: var(--navy-primary);
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .tab-btn.active {
+      background-color: var(--navy-primary);
+      color: #FFFFFF;
+      box-shadow: var(--shadow-md);
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Content Cards */
+    .content-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .content-card h3 {
+      border-bottom: 2px solid var(--bg-main);
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Flowcharts & Diagram Styles */
+    .flowchart-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 2rem 1rem;
+      background-color: var(--bg-main);
+      border-radius: 12px;
+      margin: 1.5rem 0;
+    }
+
+    @media (min-width: 768px) {
+      .flowchart-container {
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+    }
+
+    .flow-node {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-top: 4px solid var(--navy-primary);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      width: 100%;
+      max-width: 200px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .flow-node:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-top-color: var(--blue-accent);
+    }
+
+    .flow-node-title {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--navy-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.25rem;
+    }
+
+    .flow-node-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .flow-arrow {
+      color: var(--blue-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 767px) {
+      .flow-arrow {
+        transform: rotate(90deg);
+        margin: 0.25rem 0;
+      }
+    }
+
+    /* Step Timelines */
+    .timeline {
+      position: relative;
+      padding-left: 2.5rem;
+      margin: 2rem 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 17px;
+      width: 2px;
+      background-color: var(--border-color);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-badge {
+      position: absolute;
+      left: -2.5rem;
+      top: 4px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: var(--navy-primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: 4px solid var(--bg-card);
+      z-index: 10;
+      transition: background-color 0.3s;
+    }
+
+    .timeline-item:hover .timeline-badge {
+      background-color: var(--blue-accent);
+    }
+
+    .timeline-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .timeline-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .timeline-card h4 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: var(--navy-primary);
+    }
+
+    /* Visual Studio IDE Mockups inside Timeline */
+    .ide-mockup {
+      background-color: #1E1E1E;
+      border-radius: 8px;
+      margin-top: 1rem;
+      border: 1px solid #2D2D2D;
+      overflow: hidden;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.85rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .ide-header {
+      background-color: #2D2D2D;
+      padding: 0.5rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #3F3F46;
+    }
+
+    .ide-tabs {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .ide-tab {
+      background-color: #1E1E1E;
+      color: #D4D4D4;
+      padding: 0.35rem 0.75rem;
+      border-radius: 4px 4px 0 0;
+      font-size: 0.75rem;
+      border-bottom: 2px solid var(--blue-accent);
+    }
+
+    .ide-controls {
+      display: flex;
+      gap: 0.35rem;
+    }
+
+    .ide-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .dot-close { background-color: #FF5F56; }
+    .dot-minimize { background-color: #FFBD2E; }
+    .dot-maximize { background-color: #27C93F; }
+
+    .ide-body {
+      padding: 1rem;
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      min-height: 150px;
+      color: #D4D4D4;
+    }
+
+    @media (max-width: 768px) {
+      .ide-body {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+
+    .ide-sidebar {
+      border-right: 1px solid #2D2D2D;
+      padding-right: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .ide-sidebar {
+        border-right: none;
+        border-bottom: 1px solid #2D2D2D;
+        padding-bottom: 1rem;
+        padding-right: 0;
+      }
+    }
+
+    .ide-search-box {
+      background-color: #3C3C3C;
+      border: 1px solid #555555;
+      color: #FFFFFF;
+      padding: 0.25rem 0.5rem;
+      border-radius: 3px;
+      width: 100%;
+      margin-bottom: 0.5rem;
+      font-size: 0.75rem;
+      box-sizing: border-box;
+    }
+
+    .ide-results {
+      font-size: 0.75rem;
+    }
+
+    .ide-result-item {
+      padding: 0.25rem;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .ide-result-item.active {
+      background-color: #094771;
+      color: #FFFFFF;
+    }
+
+    .ide-content {
+      padding-left: 1rem;
+      overflow-x: auto;
+    }
+
+    .tag-blue { color: #569CD6; }
+    .tag-teal { color: #4EC9B0; }
+    .tag-orange { color: #CE9178; }
+    .tag-gray { color: #6A9955; }
+    .tag-yellow { color: #DCDCAA; }
+
+    /* Code Block & Copy Button */
+    .code-window {
+      background-color: var(--code-bg);
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 1.25rem 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow-md);
+    }
+
+    .code-window-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 0.6rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .code-window-title {
+      color: #94A3B8;
+      font-size: 0.75rem;
+      font-family: monospace;
+      font-weight: 600;
+    }
+
+    .copy-btn {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--code-text);
+      border: none;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .copy-btn:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+
+    .code-window pre {
+      margin: 0;
+      padding: 1.25rem;
+      overflow-x: auto;
+    }
+
+    .code-window code {
+      font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+      font-size: 0.9rem;
+      color: var(--code-text);
+    }
+
+    /* Interactive Accordions */
+    .accordion {
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      background-color: var(--bg-card);
+      overflow: hidden;
+      margin-bottom: 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .accordion-trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 1.25rem;
+      text-align: left;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--navy-primary);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.2s;
+    }
+
+    .accordion-trigger:hover {
+      background-color: var(--bg-main);
+    }
+
+    .accordion-icon {
+      transition: transform 0.3s ease;
+      color: var(--text-muted);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      border-top: 1px solid transparent;
+    }
+
+    .accordion.open .accordion-content {
+      border-top: 1px solid var(--border-color);
+    }
+
+    .accordion.open .accordion-icon {
+      transform: rotate(180deg);
+    }
+
+    .accordion-body {
+      padding: 1.25rem;
+    }
+
+    /* Styled Tables */
+    .table-responsive {
+      overflow-x: auto;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .styled-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    .styled-table th {
+      background-color: var(--navy-primary);
+      color: #FFFFFF;
+      padding: 0.75rem 1rem;
+      font-weight: 600;
+    }
+
+    .styled-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .styled-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .styled-table tbody tr:nth-child(even) {
+      background-color: var(--bg-main);
+    }
+
+    /* Informational Notes */
+    .info-callout {
+      background-color: #EFF6FF;
+      border-left: 4px solid var(--blue-accent);
+      padding: 1rem 1.25rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.25rem 0;
+    }
+
+    .info-callout p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #1E3A8A;
+    }
+
+    /* Grid Layouts for split blocks */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 992px) {
+      .grid-2 {
+        grid-template-columns: 1.2fr 0.8fr;
+      }
+    }
+
+    /* Checklist Utility */
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .checkbox-mock {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--blue-accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.75rem;
+      font-weight: bold;
+      flex-shrink: 0;
+      background-color: var(--blue-accent);
+    }
+  </style>
+
+  <!-- Interactive Header -->
+  <header class="doc-header">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <span class="badge">
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+          Automation Guide
+        </span>
+        <h1 style="margin-top: 0.5rem;">Running Automation for a Specific Test Case</h1>
+        <p class="subtitle">Step-by-step test execution configuration using Icertis CLM Tests in Visual Studio</p>
+      </div>
+    </div>
+
+    <!-- Watch Demo Section inside header -->
+    <div class="video-banner">
+      <div class="video-info">
+        <div class="video-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </div>
+        <div class="video-text">
+          <h4>Video Demonstration Walkthrough</h4>
+          <p>See the visual execution of test cases and pipeline parameters in real-time.</p>
+        </div>
+      </div>
+      <a href="https://icertis365-my.sharepoint.com/:v:/g/personal/i-ayush_dhamecha_icertis_com/IQAZ_tjPgbxDQKAnOnrJdwkaAfqciRf01mqzTzNdZFUq-80?e=OXROyQ" target="_blank" class="video-btn">
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+        Watch Video
+      </a>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <div class="tabs-container">
+    <div class="tab-list">
+      <button class="tab-btn active" data-tab="tab-overview">
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+        Overview & Flow
+      </button>
+      <button class="tab-btn" data-tab="tab-config">
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path></svg>
+        Setup & Config
+      </button>
+      <button class="tab-btn" data-tab="tab-timeline">
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        Step-by-Step
+      </button>
+      <button class="tab-btn" data-tab="tab-summary">
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+        Summary Check
+      </button>
+    </div>
+
+    <!-- TAB 1: OVERVIEW & FLOW -->
+    <div id="tab-overview" class="tab-content active">
+      <div class="grid-2">
+        <div class="content-card">
+          <h3>Prerequisites Checklist</h3>
+          <p>Ensure your system matches all specifications below before running the automated script.</p>
+          
+          <div style="margin-top: 1.5rem;">
+            <div class="checklist-item">
+              <span class="checkbox-mock">✓</span>
+              <div>
+                <strong>Visual Studio Environment</strong>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0;">Installed with workloads including .NET Desktop Development & Web Development.</p>
+              </div>
+            </div>
+            
+            <div class="checklist-item">
+              <span class="checkbox-mock">✓</span>
+              <div>
+                <strong>Repository Access</strong>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0;">Local access to the cloned repository and <code>Icertis.CLM.Tests.sln</code> solution file.</p>
+              </div>
+            </div>
+
+            <div class="checklist-item">
+              <span class="checkbox-mock">✓</span>
+              <div>
+                <strong>ICI Environment Host</strong>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0;">Active Target URL / Domain e.g., <code>opcoreauto1.icertis.com</code></p>
+              </div>
+            </div>
+
+            <div class="checklist-item">
+              <span class="checkbox-mock">✓</span>
+              <div>
+                <strong>Test Metadata</strong>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0;">The Test Case ID you want to isolate & run (e.g. <code>75668</code>).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-card" style="background-color: var(--navy-primary); color: #FFFFFF;">
+          <h3 style="color: #FFFFFF; border-bottom-color: rgba(255,255,255,0.1);">Interactive Flow</h3>
+          <p style="color: #93C5FD;">Execution path of configuring and triggering tests:</p>
+          
+          <div class="flowchart-container" style="background-color: rgba(0,0,0,0.2); padding: 1.25rem;">
+            <div class="flow-node" style="color: var(--text-main)">
+              <div class="flow-node-title">1. Configure</div>
+              <div class="flow-node-desc">Set environment and Test ID in App.config</div>
+            </div>
+            <div class="flow-arrow">➜</div>
+            <div class="flow-node" style="color: var(--text-main)">
+              <div class="flow-node-title">2. Search ID</div>
+              <div class="flow-node-desc">Find matching XML Suite entry</div>
+            </div>
+            <div class="flow-arrow">➜</div>
+            <div class="flow-node" style="color: var(--text-main)">
+              <div class="flow-node-title">3. Trace Suite</div>
+              <div class="flow-node-desc">Link XML Suite configuration to C# file</div>
+            </div>
+            <div class="flow-arrow">➜</div>
+            <div class="flow-node" style="color: var(--text-main)">
+              <div class="flow-node-title">4. Execute</div>
+              <div class="flow-node-desc">Right-click target method & Run Tests</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: SETUP & CONFIGURATION -->
+    <div id="tab-config" class="tab-content">
+      <div class="content-card">
+        <h3>Step 1 & 2: Opening Files</h3>
+        <p>Ensure you open the target repository configuration accurately to avoid system-level variable discrepancies.</p>
+        
+        <div class="code-window">
+          <div class="code-window-header">
+            <span class="code-window-title">Target Directory Path</span>
+            <button class="copy-btn" onclick="copyCode(this, 'C:\\TFS\\ici-platform\\src\\CLM\\Tests\\Icertis.CLM.Tests\\App.config')">
+              <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+              Copy
+            </button>
+          </div>
+          <pre><code>C:\TFS\ici-platform\src\CLM\Tests\Icertis.CLM.Tests\App.config</code></pre>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <h3>Step 3: App.config Parameters configuration</h3>
+        <p>Update key parameters under the <code>&lt;appSettings&gt;</code> schema in <code>App.config</code>:</p>
+
+        <div class="table-responsive">
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th style="width: 25%;">Configuration Key</th>
+                <th style="width: 35%;">Purpose</th>
+                <th style="width: 40%;">Value Configuration Instance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>ApplicationUri</strong></td>
+                <td>Domain address of target environment where tests are triggered</td>
+                <td><code>&lt;add key="ApplicationUri" value="https://opcoreauto1.icertis.com" /&gt;</code></td>
+              </tr>
+              <tr>
+                <td><strong>ExecuteTestCases</strong></td>
+                <td>Comma-separated execution values targeting specific unique IDs</td>
+                <td><code>&lt;add key="ExecuteTestCases" value="75668" /&gt;</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: STEP-BY-STEP PROCESS -->
+    <div id="tab-timeline" class="tab-content">
+      <div class="timeline">
+        
+        <!-- Step 1 -->
+        <div class="timeline-item">
+          <div class="timeline-badge">1</div>
+          <div class="timeline-card">
+            <div class="timeline-card-header">
+              <h4>Open Solution</h4>
+              <span class="badge" style="background-color: var(--navy-primary)">Init</span>
+            </div>
+            <p>Launch Microsoft Visual Studio. Open the workspace utilizing <strong>Icertis.CLM.Tests.sln</strong> to compile and cache localized libraries.</p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="timeline-item">
+          <div class="timeline-badge">2</div>
+          <div class="timeline-card">
+            <div class="timeline-card-header">
+              <h4>Open Config Block</h4>
+              <span class="badge" style="background-color: var(--blue-accent)">Config</span>
+            </div>
+            <p>Direct yourself to the config structure directory, launching <code>App.config</code> from Visual Studio Solution Explorer.</p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="timeline-item">
+          <div class="timeline-badge">3</div>
+          <div class="timeline-card">
+            <div class="timeline-card-header">
+              <h4>Set Key-Value Parameters</h4>
+              <span class="badge" style="background-color: var(--blue-accent)">Config</span>
+            </div>
+            <p>Update <code>ApplicationUri</code> and your targeted <code>ExecuteTestCases</code> parameter to scope tests correctly.</p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="timeline-item">
+          <div class="timeline-badge">4</div>
+          <div class="timeline-card">
+            <div class="timeline-card-header">
+              <h4>Search for Test Case ID</h4>
+              <span class="badge" style="background-color: var(--blue-accent)">Search</span>
+            </div>
+            <p>Search for the Test Case ID (e.g., <code>75668</code>) using the <strong>Code Search</strong> box in Visual Studio. The results will identify the XML suite file declaring the DataSetId.</p>
+
+            <!-- Custom IDE UI Mockup replacing missing screenshots -->
+            <div class="ide-mockup">
+              <div class="ide-header">
+                <div class="ide-controls">
+                  <span class="ide-dot dot-close"></span>
+                  <span class="ide-dot dot-minimize"></span>
+                  <span class="ide-dot dot-maximize"></span>
+                </div>
+                <div style="color: #858585; font-size: 0.75rem;">Visual Studio - Code Search</div>
+              </div>
+              <div class="ide-body">
+                <div class="ide-sidebar">
+                  <input type="text" class="ide-search-box" value="75668" disabled />
+                  <div class="ide-results">
+                    <div style="color: #858585; margin-bottom: 0.25rem;">RESULTS (1 FILE MATCH):</div>
+                    <div class="ide-result-item active">
+                      🗎 Template_ExtentionAttributes...xml
+                    </div>
+                  </div>
+                </div>
+                <div class="ide-content">
+                  <div class="ide-tabs">
+                    <div class="ide-tab">Template_ExtentionAttributesSearchSuite1.xml</div>
+                  </div>
+                  <pre style="margin-top: 0.75rem; font-family: inherit;"><span class="tag-blue">&lt;?xml</span> <span class="tag-teal">version</span>=<span class="tag-orange">"1.0"</span><span class="tag-blue">?&gt;</span>
+<span class="tag-blue">&lt;TestSuite&gt;</span>
+  <span class="tag-blue">&lt;TestCase</span> <span class="tag-teal">Id</span>=<span class="tag-orange">"75668"</span><span class="tag-blue">&gt;</span>
+    <span class="tag-blue">&lt;DataSetIds&gt;</span>10522,10523<span class="tag-blue">&lt;/DataSetIds&gt;</span>
+  <span class="tag-blue">&lt;/TestCase&gt;</span>
+<span class="tag-blue">&lt;/TestSuite&gt;</span></pre>
+                </div>
+              </div>
+            </div>
+            <div class="info-callout">
+              <p>💡 The code search traces the test schema structure through XML suite configuration declarations linked to DataSet parameters.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="timeline-item">
+          <div class="timeline-badge">5</div>
+          <div class="timeline-card">
+            <div class="timeline-card-header">
+              <h4>Locate C# Suite Method</h4>
+              <span class="badge" style="background-color: var(--blue-accent)">Match</span>
+            </div>
+            <p>Search for the XML suite filename (e.g., <code>Template_ExtentionAttributesSearchSuite1</code>) within Code Search. This links the suite file directly to its declaring wrapper <strong>.cs test file</strong>.</p>
+
+            <!-- Custom IDE UI Mockup 2 -->
+            <div class="ide-mockup">
+              <div class="ide-header">
+                <div class="ide-controls">
+                  <span class="ide-dot dot-close"></span>
+                  <span class="ide-dot dot-minimize"></span>
+                  <span class="ide-dot dot-maximize"></span>
+                </div>
+                <div style="color: #858585; font-size: 0.75rem;">Visual Studio - Reference Tracer</div>
+              </div>
+              <div class="ide-body">
+                <div class="ide-sidebar">
+                  <input type="text" class="ide-search-box" value="Template_ExtentionAttributesSearchSuite1" disabled />
+                  <div class="ide-results">
+                    <div style="color: #858585; margin-bottom: 0.25rem;">RESULTS (2 MATCHES):</div>
+                    <div class="ide-result-item">🗎 Template_ExtentionAttributes...xml</div>
+                    <div class="ide-result-item active">🗎 UIConfigBasedN5Tests.cs (Line 890)</div>
+                  </div>
+                </div>
+                <div class="ide-content">
+                  <div class="ide-tabs">
+                    <div class="ide-tab">UIConfigBasedN5Tests.cs</div>
+                  </div>
+                  <pre style="margin-top: 0.75rem; font-family: inherit;"><span class="tag-blue">namespace</span> Icertis.CLM.Tests
+{
+  [<span class="tag-teal">TestClass</span>]
+  <span class="tag-blue">public class</span> <span class="tag-teal">UIConfigBasedN5Tests</span> {
+    [<span class="tag-teal">TestMethod</span>]
+    <span class="tag-blue">public void</span> <span class="tag-yellow">Template_ExtentionAttributesSearchSuite1</span>() {
+       <span class="tag-gray">// Test Initialization Method Execution...</span>
+    }
+  }
+}</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="timeline-item">
+          <div class="timeline-badge">6</div>
+          <div class="timeline-card">
+            <div class="timeline-card-header">
+              <h4>Run Isolated Suite Method</h4>
+              <span class="badge" style="background-color: #10B981">Execute</span>
+            </div>
+            <p>Navigate directly to the test signature inside the declared C# file. **Right-click** on the test method name and click on **Run Tests**.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion Section for detailed system execution information -->
+      <div class="accordion" id="system-execution-accordion">
+        <button class="accordion-trigger" onclick="toggleAccordion(this)">
+          What Happens During Test Execution?
+          <svg class="accordion-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <ul>
+              <li><strong>Compiling & Build Phase:</strong> Visual Studio validates dependent code schemas and generates localized binaries.</li>
+              <li><strong>Browser Initialization:</strong> ChromeDriver initiates, launching a specialized Google Chrome context pointing to your configured environment.</li>
+              <li><strong>Authentication Automation:</strong> The script injects configuration parameters and cookies to bypass typical login flows.</li>
+              <li><strong>Asserting Test Parameters:</strong> The browser executes simulated interactions based on XML dataset properties, recording passes and assertion statuses automatically.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: SUMMARY CHECKLIST -->
+    <div id="tab-summary" class="tab-content">
+      <div class="content-card">
+        <h3>Execution Process Cheat Sheet</h3>
+        <p>A quick summary mapping variables and operations for quick deployments.</p>
+
+        <div class="table-responsive">
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th style="width: 15%;">Step #</th>
+                <th style="width: 35%;">Action Required</th>
+                <th style="width: 50%;">Workspace context / Source Location</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1</strong></td>
+                <td>Open <code>Icertis.CLM.Tests.sln</code></td>
+                <td>Microsoft Visual Studio Workspace Editor</td>
+              </tr>
+              <tr>
+                <td><strong>2</strong></td>
+                <td>Open Configuration File</td>
+                <td><code>App.config</code> file within CLM Tests Project</td>
+              </tr>
+              <tr>
+                <td><strong>3</strong></td>
+                <td>Input URI and target ID parameters</td>
+                <td><code>ApplicationUri</code> &amp; <code>ExecuteTestCases</code> configurations</td>
+              </tr>
+              <tr>
+                <td><strong>4</strong></td>
+                <td>Run Test Case ID Search</td>
+                <td>VS Code Search Panel ➜ locate associated XML Suites</td>
+              </tr>
+              <tr>
+                <td><strong>5</strong></td>
+                <td>Search Suite XML Name</td>
+                <td>Locate exact <code>.cs</code> class method referencing the XML</td>
+              </tr>
+              <tr>
+                <td><strong>6</strong></td>
+                <td>Trigger Test Case Method Run</td>
+                <td>Right-click C# method definition ➜ Select **Run Tests**</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Javascript Logic -->
+  <script>
+    // Tabbed Navigation Switcher logic
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const targetTab = button.getAttribute('data-tab');
+
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
+
+        button.classList.add('active');
+        document.getElementById(targetTab).classList.add('active');
+      });
+    });
+
+    // Accordion expand/collapse script logic
+    function toggleAccordion(trigger) {
+      const accordion = trigger.parentElement;
+      const content = accordion.querySelector('.accordion-content');
+      
+      if (accordion.classList.contains('open')) {
+        content.style.maxHeight = '0px';
+        accordion.classList.remove('open');
+      } else {
+        accordion.classList.add('open');
+        content.style.maxHeight = content.scrollHeight + 'px';
+      }
+    }
+
+    // Dynamic timeline scrolling animation (IntersectionObserver)
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      timelineItems.forEach(item => observer.observe(item));
+    } else {
+      timelineItems.forEach(item => item.classList.add('visible'));
+    }
+
+    // Code copier script logic
+    function copyCode(button, text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const originalText = button.innerHTML;
+        button.innerHTML = `
+          <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          Copied!
+        `;
+        button.style.backgroundColor = '#10B981';
+        button.style.color = '#FFFFFF';
+        
+        setTimeout(() => {
+          button.innerHTML = originalText;
+          button.style.backgroundColor = '';
+          button.style.color = '';
+        }, 2000);
+      }).catch(err => {
+        console.error('Copy execution failed', err);
+      });
+    }
+  </script>
+</div>
+    </div>
+    <div class="footer">
+      Generated & Presented via interactive Documentation Hosting on 6/7/2026
+    </div>
+  </div>
+</body>
+</html>
